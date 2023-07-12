@@ -1,0 +1,7 @@
+Jinja2
+fastapi
+requests
+uvicorn
+gunicorn
+dnspython
+python-dotenv
