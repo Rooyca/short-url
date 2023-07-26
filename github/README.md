@@ -1,4 +1,4 @@
-# GSHU 🔥
+# GHUS 🔥
 
 Make short urls with github issues. [Learn more.](https://github.com/rooyca/short)
 
