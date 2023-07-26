@@ -37,7 +37,7 @@ async def short(request: Request):
     data = await request.body()
     data_str = data.decode()
     url_parse = urllib.parse.unquote(data_str)
-    url = url_parse.split("=")[1]
+    url = url_parse.split("=")
 
     headers = {
         "Authorization": f"Bearer {access_token}",
@@ -45,11 +45,12 @@ async def short(request: Request):
     }
 
     payload = {
-        "title": url,
+        "title": "=".join(url[1:]),
         "body": ""
     }
 
-    response = requests.post(f"https://api.github.com/repos/{repository_owner}/{repository_name}/issues", headers=headers, json=payload)
+    response = requests.post(f"https://api.github.com/repos/{repository_owner}/{repository_name}/issues", 
+                                headers=headers, json=payload)
 
     if response.status_code == 201:
         return templates.TemplateResponse("display_url.html", {
