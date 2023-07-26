@@ -1,4 +1,5 @@
 *.env
-__pycahce__/
+/__pycahce__/
 *fly.toml
+*.venv/
 ```
